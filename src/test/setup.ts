@@ -2,32 +2,22 @@
 // ================================================================================
 
 /**
- * Setup global des tests
- * Configuration centralisée pour Vitest
+ * Configuration des tests avec Vitest
+ * Style personnel: setup minimal et performant
  */
 
-import { beforeAll, afterAll, beforeEach, afterEach } from 'vitest';
+import { beforeEach, afterEach, vi } from 'vitest'
 
-// Configuration globale des tests
-beforeAll(async () => {
-  // Configuration initiale des tests
-  console.log('Initializing test environment...');
-});
-
-afterAll(async () => {
-  // Nettoyage final
-  console.log('Cleaning up test environment...');
-});
-
+// Configuration globale pour les tests
 beforeEach(() => {
   // Reset avant chaque test
-  jest.clearAllMocks?.();
-});
+  vi.clearAllMocks()
+})
 
 afterEach(() => {
   // Nettoyage après chaque test
-  jest.clearAllTimers?.();
-});
+  vi.clearAllTimers()
+})
 
 // Matchers personnalisés pour nos types
 declare global {
