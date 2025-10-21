@@ -1,22 +1,22 @@
-// 🧪 Configuration des tests avec style personnalisé
+// Configuration des tests
 // ================================================================================
 
 /**
- * 🌟 Setup global des tests avec patterns modernes
+ * Setup global des tests
  * Configuration centralisée pour Vitest
  */
 
 import { beforeAll, afterAll, beforeEach, afterEach } from 'vitest';
 
-// 🚀 Configuration globale des tests
+// Configuration globale des tests
 beforeAll(async () => {
   // Configuration initiale des tests
-  console.log('🧪 Initializing test environment...');
+  console.log('Initializing test environment...');
 });
 
 afterAll(async () => {
   // Nettoyage final
-  console.log('🧹 Cleaning up test environment...');
+  console.log('Cleaning up test environment...');
 });
 
 beforeEach(() => {
@@ -29,7 +29,7 @@ afterEach(() => {
   jest.clearAllTimers?.();
 });
 
-// 🎯 Matchers personnalisés pour nos types
+// Matchers personnalisés pour nos types
 declare global {
   namespace Vi {
     interface AsymmetricMatchersContaining {
@@ -40,7 +40,7 @@ declare global {
   }
 }
 
-// 🔧 Configuration des timeouts globaux
+// Configuration des timeouts globaux
 export const TEST_TIMEOUTS = {
   UNIT: 5000,
   INTEGRATION: 10000,

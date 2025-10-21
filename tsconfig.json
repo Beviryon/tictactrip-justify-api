@@ -1,19 +1,19 @@
 {
   "compilerOptions": {
-    // 🎯 Configurations de base modernes
+    // Configurations de base modernes
     "target": "ES2022",
     "module": "CommonJS",
     "lib": ["ES2022"],
     "outDir": "./dist",
     "rootDir": "./src",
     
-    // 🚀 Optimisations et performance
+    // Optimisations et performance
     "incremental": true,
     "tsBuildInfoFile": "./dist/.tsbuildinfo",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     
-    // 🔧 Résolution des modules avec style personnalisé
+    // Résolution des modules avec style personnalisé
     "moduleResolution": "node",
     "baseUrl": "./src",
     "paths": {
@@ -28,7 +28,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     
-    // 🛡️ Strict mode pour la qualité du code
+    // Strict mode pour la qualité du code
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -40,7 +40,7 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     
-    // 🎨 Options d'émission personnalisées
+    // Options d'émission personnalisées
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
@@ -48,12 +48,12 @@
     "importHelpers": true,
     "downlevelIteration": true,
     
-    // 🔍 Contrôles supplémentaires
+    // Contrôles supplémentaires
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     
-    // 🏗️ Décorateurs et métadonnées
+    // Décorateurs et métadonnées
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },

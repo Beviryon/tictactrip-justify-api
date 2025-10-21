@@ -1,12 +1,12 @@
-// 🎯 Types globaux avec style personnalisé - Tictactrip Justify API
+// Types globaux - Tictactrip Justify API
 // ================================================================================
 
 /**
- * 🌟 Système de types avancé avec patterns fonctionnels
+ * Système de types avancé avec patterns fonctionnels
  * Approche type-safe et expressive pour l'ensemble de l'API
  */
 
-// 🔧 Types de base ultra-expressifs
+// Types de base ultra-expressifs
 export type Timestamp = number & { readonly __brand: 'Timestamp' };
 export type WordCount = number & { readonly __brand: 'WordCount' };
 export type LineLength = number & { readonly __brand: 'LineLength' };
@@ -14,15 +14,14 @@ export type TokenId = string & { readonly __brand: 'TokenId' };
 export type UserId = string & { readonly __brand: 'UserId' };
 
 /**
- * 🎨 Result pattern personnalisé pour la gestion d'erreurs fonctionnelle
- * Inspiré de Rust/Haskell mais adapté à TypeScript
+ * Result pattern personnalisé pour la gestion d'erreurs fonctionnelle
  */
 export type Result<T, E = Error> = 
   | { readonly success: true; readonly data: T }
   | { readonly success: false; readonly error: E };
 
 /**
- * 🚀 Option pattern pour les valeurs potentiellement nulles
+ * Option pattern pour les valeurs potentiellement nulles
  * Alternative type-safe à null/undefined
  */
 export type Option<T> = 
@@ -30,7 +29,7 @@ export type Option<T> =
   | { readonly some: false };
 
 /**
- * 🎭 Union types expressifs pour les états métier
+ * Union types expressifs pour les états métier
  */
 export type AuthenticationStatus = 
   | 'authenticated'
@@ -50,7 +49,7 @@ export type JustificationStatus =
   | 'failed';
 
 /**
- * 🌟 Interfaces métier avec composition fonctionnelle
+ * Interfaces métier avec composition fonctionnelle
  */
 export interface AuthToken {
   readonly id: TokenId;
@@ -82,7 +81,7 @@ export interface JustificationResult {
 }
 
 /**
- * 🔧 Types utilitaires avec style fonctionnel
+ * Types utilitaires avec style fonctionnel
  */
 export type Immutable<T> = {
   readonly [K in keyof T]: T[K] extends object 
@@ -97,7 +96,7 @@ export type DeepPartial<T> = {
 };
 
 /**
- * 🎯 Types pour les réponses API standardisées
+ * Types pour les réponses API standards
  */
 export interface ApiResponse<T = unknown> {
   readonly success: boolean;

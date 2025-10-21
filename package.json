@@ -1,7 +1,7 @@
 {
   "name": "@beviryon/tictactrip-justify-api",
   "version": "1.0.0",
-  "description": "🎯 API REST moderne de justification de texte avec style de code unique - Test technique Tictactrip",
+  "description": "API REST moderne de justification de texte - Test technique Tictactrip",
   "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
@@ -30,8 +30,8 @@
     "authentication"
   ],
   "author": {
-    "name": "Beviryon",
-    "email": "contact@beviryon.dev"
+    "name": "Beviryon ISSANGA NGOULOU",
+    "email": "viryon.ngoulou@gmail.com"
   },
   "license": "MIT",
   "engines": {
