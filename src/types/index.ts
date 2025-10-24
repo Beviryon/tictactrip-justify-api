@@ -124,7 +124,7 @@ export interface PaginatedResponse<T> extends ApiResponse<T[]> {
 }
 
 /**
- * 🎨 Factory helpers pour créer des types brandés
+ * Factory helpers pour créer des types brandés
  */
 export const createTimestamp = (value: number): Timestamp => 
   value as Timestamp;
@@ -142,7 +142,7 @@ export const createUserId = (value: string): UserId =>
   value as UserId;
 
 /**
- * 🚀 Helpers pour Result pattern
+ * Helpers pour Result pattern
  */
 export const Success = <T>(data: T): Result<T, never> => 
   ({ success: true, data } as const);
@@ -151,7 +151,7 @@ export const Failure = <E>(error: E): Result<never, E> =>
   ({ success: false, error } as const);
 
 /**
- * 🎭 Helpers pour Option pattern
+ * Helpers pour Option pattern
  */
 export const Some = <T>(value: T): Option<T> => 
   ({ some: true, value } as const);

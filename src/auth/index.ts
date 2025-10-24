@@ -1,6 +1,6 @@
 /**
- * Auth Module - Systeme d'authentification moderne
- * Style personnel: tokens securises avec gestion intelligente
+ * Auth Module - Systeme d'authentification
+ * Style personnel: tokens securises
  */
 
 export { TokenGenerator } from './token-generator.js'

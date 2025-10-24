@@ -4,12 +4,12 @@ import { resolve } from 'path';
 
 export default defineConfig({
   test: {
-    // 🎯 Configuration des tests avec style personnalisé
+    // Configuration des tests
     globals: true,
     environment: 'node',
     setupFiles: './src/test/setup.ts',
     
-    // 🔧 Résolution des modules identique à TypeScript
+    // Résolution des modules identique à TypeScript
     alias: {
       '@': resolve(__dirname, './src'),
       '@core': resolve(__dirname, './src/core'),
@@ -19,7 +19,7 @@ export default defineConfig({
       '@config': resolve(__dirname, './src/config'),
     },
     
-    // 📊 Configuration du coverage
+    // Configuration du coverage
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html', 'lcov'],
@@ -41,7 +41,7 @@ export default defineConfig({
       },
     },
     
-    // 🚀 Performance et parallélisation
+    // Performance et parallélisation
     pool: 'threads',
     poolOptions: {
       threads: {
@@ -49,7 +49,7 @@ export default defineConfig({
       },
     },
     
-    // 🔍 Patterns de test personnalisés
+    // Patterns de test
     include: ['**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     exclude: ['node_modules', 'dist', '.idea', '.git', '.cache'],
     
@@ -57,14 +57,14 @@ export default defineConfig({
     testTimeout: 10000,
     hookTimeout: 10000,
     
-    // 📝 Reporting amélioré
+    // Reporting amélioré
     reporter: ['verbose', 'junit'],
     outputFile: {
       junit: './coverage/junit.xml',
     },
   },
   
-  // 🔧 Résolution pour l'environnement de test
+  // Résolution pour l'environnement de test
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),

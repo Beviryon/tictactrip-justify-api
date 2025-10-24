@@ -1,6 +1,5 @@
 /**
- * Core Module - Architecture fonctionnelle moderne
- * Style personnel: patterns innovants pour une base solide
+ * Core Module - Architecture fonctionnelle
  */
 
 export { Pipeline, createTransform, createAsyncTransform } from './pipeline.js'

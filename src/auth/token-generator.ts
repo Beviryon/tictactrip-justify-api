@@ -22,7 +22,7 @@ export class TokenGenerator {
     const randomData = randomBytes(this.TOKEN_LENGTH).toString('hex')
     const emailHash = createHash(this.ALGORITHM).update(email).digest('hex')
     
-    // Combinaison unique: email hash + timestamp + random + signature
+    // Combinaison unique: email hash + timestamp + random
     const baseData = `${emailHash}:${timestamp}:${randomData}`
     const signature = createHash(this.ALGORITHM)
       .update(baseData + this.ISSUER)

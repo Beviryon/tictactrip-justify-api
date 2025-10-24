@@ -3,7 +3,6 @@
 
 /**
  * Configuration centrale de l'application avec patterns fonctionnels
- * Utilise une approche immutable et type-safe pour la gestion des configs
  */
 
 import { z } from 'zod';
@@ -37,7 +36,6 @@ type Environment = z.infer<typeof EnvironmentSchema>;
 
 /**
  * Factory pattern pour créer une configuration validée
- * Approche fonctionnelle pure sans effets de bord
  */
 const createConfiguration = (): Environment => {
   const result = EnvironmentSchema.safeParse(process.env);

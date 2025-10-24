@@ -1,6 +1,5 @@
 /**
  * Event System - Systeme d'evenements type-safe et performant
- * Style personnel: patterns observateur avec gestion d'erreurs elegante
  */
 
 type EventHandler<T = any> = (data: T) => void | Promise<void>

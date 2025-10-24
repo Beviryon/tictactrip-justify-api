@@ -59,10 +59,10 @@ class Logger {
     }
 
     const colors: Record<LogLevel, string> = {
-      debug: '\x1b[36m', // Cyan
-      info: '\x1b[32m',  // Green
-      warn: '\x1b[33m',  // Yellow
-      error: '\x1b[31m'  // Red
+      debug: '\x1b[36m', 
+      info: '\x1b[32m',  
+      warn: '\x1b[33m',  
+      error: '\x1b[31m'  
     }
     
     const reset = '\x1b[0m'

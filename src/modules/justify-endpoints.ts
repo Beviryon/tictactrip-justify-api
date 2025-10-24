@@ -35,6 +35,113 @@ interface JustifyResponse {
   resetAt: string
 }
 
+/**
+ * @swagger
+ * /api/justify:
+ *   post:
+ *     tags: [Text Processing]
+ *     summary: Justifie un texte à 80 caractères par ligne
+ *     description: |
+ *       Justifie un texte en distribuant uniformément les espaces entre les mots 
+ *       pour atteindre exactement 80 caractères par ligne. La dernière ligne reste alignée à gauche.
+ *       
+ *       **Rate Limiting**: 80 000 mots maximum par jour par token.
+ *       
+ *       **Algorithme**: Distribution intelligente des espaces sans bibliothèque externe.
+ *     security:
+ *       - BearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         text/plain:
+ *           schema:
+ *             $ref: '#/components/schemas/JustifyRequest'
+ *           examples:
+ *             court:
+ *               summary: Texte court
+ *               value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+ *             long:
+ *               summary: Texte long
+ *               value: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+ *     responses:
+ *       200:
+ *         description: Texte justifié avec succès
+ *         headers:
+ *           X-Words-Used:
+ *             description: Nombre de mots utilisés dans cette requête
+ *             schema:
+ *               type: integer
+ *           X-Remaining-Words:
+ *             description: Nombre de mots restants pour aujourd'hui
+ *             schema:
+ *               type: integer
+ *           X-Reset-At:
+ *             description: Date de reset du quota quotidien
+ *             schema:
+ *               type: string
+ *               format: date-time
+ *         content:
+ *           text/plain:
+ *             schema:
+ *               $ref: '#/components/schemas/JustifyResponse'
+ *             examples:
+ *               justified:
+ *                 summary: Texte justifié
+ *                 value: |
+ *                   Lorem  ipsum  dolor  sit  amet,  consectetur  adipiscing  elit,  sed  do  eiusmod
+ *                   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+ *                   quis  nostrud  exercitation  ullamco  laboris nisi ut aliquip ex ea commodo
+ *                   consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+ *                   cillum dolore eu fugiat nulla pariatur.
+ *       400:
+ *         description: Erreur de validation du texte
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *             examples:
+ *               empty_text:
+ *                 summary: Texte vide
+ *                 value:
+ *                   error: "Text cannot be empty"
+ *               text_too_long:
+ *                 summary: Texte trop long
+ *                 value:
+ *                   error: "Text too long (max 100k characters)"
+ *       401:
+ *         description: Token manquant ou invalide
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *             examples:
+ *               missing_token:
+ *                 summary: Token manquant
+ *                 value:
+ *                   error: "Missing or invalid authorization header"
+ *               invalid_token:
+ *                 summary: Token invalide
+ *                 value:
+ *                   error: "Invalid or expired token"
+ *       402:
+ *         description: Quota de mots dépassé (Payment Required)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *             examples:
+ *               rate_limit:
+ *                 summary: Limite dépassée
+ *                 value:
+ *                   error: "Rate limit exceeded. Daily limit: 80000 words. Current usage: 79500. Requested: 600. Reset at: 2025-10-26T00:00:00.000Z"
+ *       500:
+ *         description: Erreur interne du serveur
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ */
+
 // Endpoint POST /api/justify
 async function justifyTextEndpoint(req: AuthenticatedRequest, res: Response): Promise<void> {
   const requestId = `req-${Date.now()}`
@@ -182,7 +289,6 @@ async function recordUsage(
   return { success: true, data: response }
 }
 
-// Route configuration
 export const justifyRoutes = Router()
 
 // L'endpoint principal avec authentification

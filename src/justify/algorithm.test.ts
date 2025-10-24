@@ -5,7 +5,7 @@ describe('Text Justification Algorithm', () => {
   it('should handle a single word that fits on one line', () => {
     const input = 'Hello'
     const result = justifyText(input, 20)
-    const expected = 'Hello               ' // 20 caractères total
+    const expected = 'Hello               '
     
     expect(result).toBe(expected)
     expect(result.length).toBe(20)
@@ -14,9 +14,7 @@ describe('Text Justification Algorithm', () => {
   it('should handle multiple words on one line', () => {
     const input = 'Hello world'
     const result = justifyText(input, 20)
-    // Hello (5) + world (5) + espaces = 20
-    // Espaces nécessaires: 20 - 10 = 10 espaces entre les mots
-    const expected = 'Hello          world' // 10 espaces entre les mots
+    const expected = 'Hello          world' 
     
     console.log('Result:', JSON.stringify(result))
     console.log('Expected:', JSON.stringify(expected))

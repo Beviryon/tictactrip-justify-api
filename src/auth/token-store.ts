@@ -19,7 +19,7 @@ export class TokenStore {
   
   // Configuration avec TTL de 24h par defaut
   constructor(
-    private readonly tokenTTL = 24 * 60 * 60 * 1000, // 24h en ms
+    private readonly tokenTTL = 24 * 60 * 60 * 1000,
     private readonly maxTokensPerEmail = 5
   ) {
     // Nettoyage automatique toutes les heures
