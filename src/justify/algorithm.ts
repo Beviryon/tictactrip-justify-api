@@ -8,9 +8,10 @@ export function justifyText(text: string, lineWidth: number): string {
   // Regrouper les mots par ligne
   const lines = groupWordsIntoLines(words, lineWidth)
   
-  // Étape 3: Justifier chaque ligne (sauf la dernière)
+  // Étape 3: Justifier chaque ligne
   const justifiedLines = lines.map((line, index) => {
-    const isLastLine = index === lines.length - 1
+    // La dernière ligne n'est pas justifiée SEULEMENT s'il y a plusieurs lignes
+    const isLastLine = index === lines.length - 1 && lines.length > 1
     return isLastLine ? justifyLastLine(line, lineWidth) : justifyLine(line, lineWidth)
   })
   
