@@ -50,14 +50,40 @@ function groupWordsIntoLines(words: string[], lineWidth: number): string[][] {
   
   return lines
 }
-// Fonction helper - À implémenter  
+// Fonction helper - Justifie une ligne normale (pas la dernière)
 function justifyLine(words: string[], lineWidth: number): string {
-  // TODO: implémenter
-  return ""
+  // Si un seul mot, traiter comme la dernière ligne
+  if (words.length === 1) {
+    return justifyLastLine(words, lineWidth)
+  }
+  
+  // Calculer les espaces à distribuer
+  const totalChars = words.reduce((sum, word) => sum + word.length, 0)
+  const totalSpaces = lineWidth - totalChars
+  const gaps = words.length - 1 // Nombre d'espaces entre les mots
+  
+  // Distribuer les espaces uniformément
+  const baseSpaces = Math.floor(totalSpaces / gaps)
+  const extraSpaces = totalSpaces % gaps
+  
+  let result = ''
+  for (let i = 0; i < words.length; i++) {
+    result += words[i]
+    
+    // Ajouter des espaces (sauf après le dernier mot)
+    if (i < words.length - 1) {
+      const spacesToAdd = baseSpaces + (i < extraSpaces ? 1 : 0)
+      result += ' '.repeat(spacesToAdd)
+    }
+  }
+  
+  return result
 }
 
-// Fonction helper - À implémenter
+// Fonction helper - Dernière ligne (alignée à gauche)
 function justifyLastLine(words: string[], lineWidth: number): string {
-  // TODO: implémenter
-  return ""
+  // La dernière ligne n'est PAS justifiée, on ajoute juste des espaces à la fin
+  const line = words.join(' ')
+  const spacesToAdd = lineWidth - line.length
+  return line + ' '.repeat(Math.max(0, spacesToAdd))
 }
