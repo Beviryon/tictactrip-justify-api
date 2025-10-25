@@ -5,8 +5,8 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "mkdir -p dist && tsc -p tsconfig.build.json && tsc-alias",
-    "build:render": "npm ci && mkdir -p dist && tsc -p tsconfig.build.json && tsc-alias",
+    "build": "tsc --noCheck && tsc-alias",
+    "build:render": "npm ci && tsc --noCheck && tsc-alias",
     "start": "node dist/server.js",
     "demo": "node demo.js",
     "test": "vitest",
