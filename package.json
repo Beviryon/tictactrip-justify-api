@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc && tsc-alias",
+    "build:render": "rm -rf dist || true && tsc && tsc-alias",
     "start": "node dist/server.js",
+    "demo": "node demo.js",
     "test": "vitest",
     "test:coverage": "vitest --coverage",
     "test:ui": "vitest --ui",
@@ -15,7 +17,6 @@
     "format": "biome format --write src/",
     "type-check": "tsc --noEmit",
     "clean": "rimraf dist",
-    "prebuild": "npm run clean",
     "docker:build": "docker build -t justify-api .",
     "docker:run": "docker run -p 3000:3000 justify-api"
   },

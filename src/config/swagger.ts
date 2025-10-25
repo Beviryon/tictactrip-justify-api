@@ -13,14 +13,14 @@ const options: Options = {
       title: 'Tictactrip Justify API',
       version: '1.0.0',
       description: `
-API REST moderne de justification de texte développée pour le test technique Tictactrip.
+API REST de justification de texte développée pour le test technique Tictactrip.
 
 ## Fonctionnalités
 
-- 🔐 **Authentification par token** - Génération et validation de tokens sécurisés
-- 📝 **Justification de texte** - Algorithme personnalisé pour justifier à 80 caractères
-- 🚦 **Rate limiting** - Limitation à 80 000 mots par jour par token
-- ⚡ **Architecture moderne** - TypeScript, patterns fonctionnels, validation rigoureuse
+- **Authentification par token** - Génération et validation de tokens sécurisés
+- **Justification de texte** - Algorithme personnalisé pour justifier à 80 caractères
+- **Rate limiting** - Limitation à 80 000 mots par jour par token
+- **Architecture moderne** - TypeScript, patterns fonctionnels, validation rigoureuse
 
 ## Utilisation
 
@@ -45,12 +45,8 @@ sauf pour la dernière ligne qui reste alignée à gauche.
     },
     servers: [
       {
-        url: 'http://localhost:6000',
+        url: 'http://localhost:3003',
         description: 'Serveur de développement'
-      },
-      {
-        url: 'https://your-production-url.com',
-        description: 'Serveur de production'
       }
     ],
     components: {
