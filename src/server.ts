@@ -5,10 +5,10 @@
 
 import express from 'express'
 import swaggerUi from 'swagger-ui-express'
-import { logger } from './core/logger.js'
-import { authRoutes } from './modules/auth-endpoints.js'
-import { justifyRoutes } from './modules/justify-endpoints.js'
-import { specs as swaggerSpecs } from './config/swagger.js'
+import { logger } from './core/logger'
+import { authRoutes } from './modules/auth-endpoints'
+import { justifyRoutes } from './modules/justify-endpoints'
+import { specs as swaggerSpecs } from './config/swagger'
 
 const app = express()
 const port = process.env.PORT || 3003
