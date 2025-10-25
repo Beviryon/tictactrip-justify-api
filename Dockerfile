@@ -45,11 +45,11 @@ COPY --from=builder --chown=nextjs:nodejs /app/package*.json ./
 USER nextjs
 
 # Exposition du port
-EXPOSE 3000
+EXPOSE 3003
 
 # Health check personnalisé
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD node -e "require('http').get('http://localhost:3000/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"
+    CMD node -e "require('http').get('http://localhost:3003/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"
 
 # Commande de démarrage
 CMD ["node", "dist/server.js"]
